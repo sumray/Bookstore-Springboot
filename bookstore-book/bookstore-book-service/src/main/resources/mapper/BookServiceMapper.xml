@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zq.bookstore.book.mapper.BookServiceMapper" >
+	<select id="getBooksByCommentCounts" resultType="com.zq.bookstore.book.pojo.Book">
+		SELECT t.*,COUNT(t1.bid) AS counts
+		FROM t_book t
+		LEFT JOIN t_book_comment t1
+		ON t.bid = t1.bid
+		GROUP BY t.bid
+		ORDER BY counts DESC	
+	</select>
+	
+	
+	<select id="getFamousAuthorBookList" resultType="com.zq.bookstore.book.pojo.Book">
+		SELECT t1.*
+		FROM t_book t1
+		WHERE EXISTS(
+			SELECT aid 
+			FROM t_author t
+			WHERE t.`isFamous` = 1
+			AND t1.aid = t.aid
+		)
+	</select>
+	
+	<select id="getBookCommentByBid" resultType="com.zq.bookstore.book.pojo.BookComment" parameterType="String">
+		SELECT t.*
+		FROM t_book_comment t, t_book t1
+		WHERE t.bid = t1.bid
+		AND t.bid = #{bid}
+	</select>
+</mapper>

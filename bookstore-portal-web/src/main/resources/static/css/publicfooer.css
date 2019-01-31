@@ -1,0 +1,86 @@
+.footer{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+}
+.footer .slogen{
+    padding: 20px 0;
+    width: 100%;
+    height: 54px;
+    background: #F5F5F5;
+}
+.footer .slogen ul{
+    display: flex;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
+}
+.footer .slogen ul li{
+    position: relative;
+    width: 302px;
+}
+.footer .slogen ul li:nth-child(1) i{
+    background: url("../../img/slogen/1.png");
+}
+.footer .slogen ul li:nth-child(2) i{
+    background: url("../../img/slogen/2.png");
+}
+.footer .slogen ul li:nth-child(3) i{
+    background: url("../../img/slogen/3.png");
+}
+.footer .slogen ul li:nth-child(4) i{
+    background: url("../../img/slogen/4.png");
+}
+.footer .slogen ul li i{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 220px;
+    height: 54px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.footer .modeList{
+    position: relative;
+    display: flex;
+    margin:20px auto;
+    width: 70%;
+    justify-content: space-around;
+    z-index: 5;
+}
+.footer .modeList h2{
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 300;
+}
+.footer .modeList ul li{
+    height: 26px;
+    line-height: 26px;
+}
+.footer .modeList ul li a{
+    font-size: 14px;
+    color: #999;
+}
+.footer .modeList ul li a:hover{
+    color: #4dc0e4;
+    text-decoration: none;
+}
+.footer .QRcode{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    display: flex;
+    transform: translate3d(-50%,0,0);
+    width: 50%;
+    justify-content: space-around;
+}
+.footer .QRcode div{
+    width: 150px;
+    height: 150px;
+}
+.footer .QRcode div img{
+    width: 150px;
+    height: 150px;
+}

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--SUI-->
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui-append.min.css">
+    <script src="http://g.alicdn.com/sj/lib/jquery.min.js"></script>
+    <script src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <!--懒加载-->
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <!--初始化css-->
+    <link rel="stylesheet" th:href="@{/css/initCss.css}">
+    <!--公共头部css-->
+    <link rel="stylesheet" th:href="@{/css/publicHeader.css}">
+    <!--公共底部css-->
+    <link rel="stylesheet" th:href="@{/css/publicfooer.css}">
+    <!--公共css-->
+    <link rel="stylesheet" th:href="@{/css/publicCss.css}">
+    <!--详情css-->
+    <link rel="stylesheet" th:href="@{/css/detailCss.css}">
+    <link rel="stylesheet" th:href="@{/css/plug/magnifier/css/magnifier.css}">
+    <script th:src="@{/js/plug/magnifier.min.js}"></script>
+    <title>详情</title>
+</head>
+<body>
+    <div class="detail_container">
+        <!--公共头部start-->
+        <div class="header" th:include="/header::header-pagination"></div>
+        <!--公共部分end-->
+        <!--详情页 start-->
+        <div class="other">
+            <!--面包屑-->
+            <div class="breadcrumb">
+                <ul class="sui-breadcrumb">
+                    <li>图书</li>
+                    <li th:text="${book.category.cname}"></li>
+                </ul>
+            </div>
+            <!--信息-->
+            <div class="product-intro clearfix">
+                <div id="preview" class="f_l">
+                    <div id="big_img"></div>
+                    <div id="img_preview">
+                        <div class="img_cover"><img src="" alt=""></div>
+                    </div>
+                    <div id="img_list">
+                        <div class="item_list">
+                            <ul>
+                                <li th:if="${book.image ne null}"><img th:src="@{'/' + ${book.image}}" alt="" /></li>
+                                <li th:if="${book.image2 ne null}"><img th:src="@{'/' + ${book.image2}}" alt="" /></li>
+                                <li th:if="${book.image3 ne null}"><img th:src="@{'/' + ${book.image3}}" alt="" /></li>
+                                <li th:if="${book.image4 ne null}"><img th:src="@{'/' + ${book.image4}}" alt="" /></li>
+                                <li th:if="${book.image5 ne null}"><img th:src="@{'/' + ${book.image5}}" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="btn">
+                            <span id="pre_btn" class="hoverBtn"></span>
+                            <span id="next_btn" class="hoverBtn"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item_info f_l">
+                    <div class="name">
+                        <p th:text="${book.title}"></p>
+                    </div>
+                    <div class="intro">
+                        <p th:text="${book.description}"></p>
+                    </div>
+                    <div class="author">
+                        <span>作者:</span>
+                        <span th:text="${book.author.aname}"></span>
+                    </div>
+                    <div class="price">
+                        <span>书价:</span>
+                        <span th:text="'￥' + ${book.price}"></span>
+                    </div>
+                    <div id="num" class="num">
+                        <input type="text" name="num" data-max="200">
+                        <button id="reduce">-</button>
+                        <button id="plus">+</button>
+                    </div>
+                    <div class="btnG">
+                        <button>加入购物车</button>
+                        <button>一键购买</button>
+                    </div>
+                </div>
+            </div>
+            <!--评论-->
+            <div class="comment" data-num="30">
+                <div class="comment_title">
+                    <div>买家评论</div>
+                </div>
+                <div class="comment_list">
+                    <ul>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容</p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                </p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容</p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                </p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容</p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                </p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容</p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                </p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容</p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                        <li>
+                            <div class="username">用户昵称</div>
+                            <div class="content">
+                                <p>这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                    这是用户评论内容这是用户评论内容这是用户评论内容这是用户评论内容
+                                </p>
+                            </div>
+                            <div class="time">2019-1-21 23:37</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="more">
+                    <span>更多...</span>
+                </div>
+            </div>
+        </div>
+        <!--详情页 end-->.
+        <!--公共底部 start-->
+        <div class="footer" th:include="/footer::footer-pagination"></div>
+        <!--公共底部 end-->
+    </div>
+</body>
+<script th:src="@{/js/publicEffect.js}"></script>
+<script th:src="@{/js/detaileffect.js}"></script>
+<script th:inline="javascript">
+	const comment = new Comment(function () {
+    	var url = [[@{/here}]]; 
+/*        const data = $.ajax({
+            url:'',
+            method:'post',
+            data:{}
+        })
+            .then(data => {
+                return [1,2,3,4,5,6,7,8,9,10];
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        return data;*/
+        return [1,2,3,4,5,6,7,8,9,10];
+    });
+</script>
+</html>

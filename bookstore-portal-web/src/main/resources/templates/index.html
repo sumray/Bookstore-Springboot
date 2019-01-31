@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--SUI-->
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui-append.min.css" />
+    <script src="http://g.alicdn.com/sj/lib/jquery.min.js"></script>
+    <script src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <!--懒加载-->
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <!--初始化css-->
+    <link rel="stylesheet" href="/css/initCss.css" />
+    <!--公共头部css-->
+    <link rel="stylesheet" href="/css/publicHeader.css" />
+    <!--公共底部css-->
+    <link rel="stylesheet" href="/css/publicfooer.css" />
+    <!--公共css-->
+    <link rel="stylesheet" href="/css/publicCss.css" />
+    <!--首页css-->
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>书城-首页</title>
+</head>
+<body>
+    <div class="container">
+        <!--公共头部start-->
+        <div class="header" th:include="/header::header-pagination"></div>
+        <!--公共部分end-->
+        <!--首页其他start-->
+        <div class="other">
+            <!--banner start-->
+            <div class="banner">
+                <div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide o_hidden">
+                    <!--切换按钮-->
+                    <ol class="carousel-indicators dot_list">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active">
+                            <img src="./img/banner/1.jpg" />
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="1">
+                            <img src="./img/banner/2.jpg" />
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="2">
+                            <img src="./img/banner/3.jpg" />
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="3">
+                            <img src="./img/banner/4.jpg" />
+                        </li>
+                        <li data-target="#myCarousel" data-slide-to="4">
+                            <img src="./img/banner/5.jpg" />
+                        </li>
+                    </ol>
+                    <!--轮播图-->
+                    <div class="carousel-inner">
+                        <div class="active item">
+                            <a href=""><img src="./img/banner/1.jpg" /></a>
+                        </div>
+                        <div class="item">
+                            <a href=""><img src="./img/banner/2.jpg" /></a>
+                        </div>
+                        <div class="item">
+                            <a href=""><img src="./img/banner/3.jpg" /></a>
+                        </div>
+                        <div class="item">
+                            <a href=""><img src="./img/banner/4.jpg" /></a>
+                        </div>
+                        <div class="item">
+                            <a href=""><img src="./img/banner/5.jpg" /></a>
+                        </div>
+                    </div>
+                    <!--上一张 下一张-->
+                    <a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a>
+                    <a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
+                </div>
+            </div>
+            <!--banner end-->
+            <!--新书上架 start-->
+            <div class="newBook w_1210">
+                <div class="title mg_b_18">
+                    <p>新书上架</p>
+                </div>
+                <div class="list">
+					<ul>
+                        <li th:each="book:${newestBookList}">
+                            <a th:href="@{'/loadBookDetail/' + ${book.bid}}" class="info_link"></a>
+                            <div class="img">
+                                <img th:attr="data-src=${book.image}" alt="" />
+                            </div>
+                            <p class="name" th:title="${book.bname}" th:text="${book.bname}"></p>
+                            <div class="price">
+                                <span th:text="${'￥' + book.price}"></span>
+                            </div>
+                            <div class="btn">
+                                <a href="">
+                                    <i class="sui-icon icon-tb-cart"></i>
+                                   	 加入购物车
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--新书上架 end-->
+            <!--热门书籍 start-->
+            <div class="hotBook w_1210">
+                <div class="title mg_b_18">
+                    <p>热门书籍</p>
+                    <div>
+                        <i></i>
+                        <span>畅销榜</span>
+                    </div>
+                </div>
+                <div class="hot_content">
+                    <div class="left_info">
+                        <img data-src="./img/logo/hotBook.jpg" alt="">
+                        <p class="one select">热门</p>
+                        <p class="two">独家</p>
+                    </div>
+                    <div class="middle_list">
+                        <!--热门-->
+                        <ul class="hot">
+                            <li th:each="book:${popularBookList}">
+                                <a th:href="@{'/loadBookDetail/' + ${book.bid}}" class="info_link"></a>
+                                <div class="img">
+                                    <img th:attr="data-src=${book.image}" alt="">
+                                </div>
+                                <p class="name" title="${book.bname}" th:text="${book.bname}"></p>
+                                <div class="price">
+                                    <span th:text="'￥' + ${book.price}"></span>
+                                </div>
+                                <div class="btn">
+                                    <a href="">
+                                        <i class="sui-icon icon-tb-cart"></i>
+                                       	加入购物车
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--独家-->
+                        <ul class="exclusive">
+                            <li th:each="book:${soleBookList}">
+                                <a th:href="@{'/loadBookDetail/' + ${book.bid}}" class="info_link"></a>
+                                <div class="img">
+                                    <img th:attr="data-src=${book.image}" alt="">
+                                </div>
+                                <p class="name" th:title="${book.bname}" th:text="${book.bname}"></p>
+                                <div class="price">
+                                    <span th:text="'￥' + ${book.price}"></span>
+                                </div>
+                                <div class="btn">
+                                    <a href="">
+                                        <i class="sui-icon icon-tb-cart"></i>
+                                      		 加入购物车
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 畅销榜  -->
+                    <div class="right_info">
+                        <ul>
+                            <li th:each="book,bookStat:${salableBookList}">
+                                <a th:href="@{'/loadBookDetail/' + ${book.bid}}"></a>
+                                <span th:text="${bookStat.index} + 1"></span>
+                                <img th:attr="src=${book.image}" alt="">
+                                <p title="${book.bname}" th:text="${book.bname}"></p>
+                                <div class="price">
+                                    <span th:text="'￥' + ${book.price}"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--热门书籍 end-->
+            <!--名家名著 start-->
+            <div class="famousBook w_1210">
+                <div class="title mg_b_18">
+                    <p>名家名著</p>
+                </div>
+                <div class="famous_content">
+                    <div class="left_info">
+                        <img data-src="./img/logo/famousBook.jpg" alt="">
+                        <p>智慧属于人类</br>而风格属于作家</br> —— 莫佩尔蒂</p>
+                    </div>
+                    <div class="middle_list">
+                        <ul>
+                            <li th:each="book:${famousAuthorBookList}">
+                                <a th:href="@{'/loadBookDetail/' + ${book.bid}}" class="info_link"></a>
+                                <div class="img">
+                                    <img th:attr="data-src=${book.image}" alt="">
+                                </div>
+                                <p class="name" th:title="${book.bname}" th:text="${book.bname}"></p>
+                                <div class="price">
+                                    <span th:text="'￥' + ${book.price}"></span>
+                                </div>
+                                <div class="btn">
+                                    <a href="">
+                                        <i class="sui-icon icon-tb-cart"></i>
+                                        加入购物车
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right_info">
+                        <div class="character">
+                            <h2>人物</h2>
+                        </div>
+                        <div class="writer">
+                            <div class="info">
+                                <div class="img">
+                                    <img th:attr="data-src=${firstAuthor.image}" alt="">
+                                </div>
+                                <div class="about">
+                                    <p th:text="${firstAuthor.aname}"></p>
+                                    <p th:text="${firstAuthor.introduce}"></p>
+                                </div>
+                            </div>
+                            <div class="book">
+                                <ul th:each="book:${firstAuthor.bookList}">
+                                    <li th:text="${book.bname}"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="other">
+                            <ul>
+                                <li th:each="author:${authorList}">
+	                                <a href="" th:text="${author.aname}">
+	                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--名家名著 end-->
+        </div>
+        <!--首页其他end-->
+        <!--公共底部 start-->
+        <div class="footer" th:include="/footer::footer-pagination"></div>
+        <!--公共底部 end-->
+    </div>
+</body>
+<script src="/js/publicEffect.js"></script>
+<script src="/js/effect.js"></script>
+</html>

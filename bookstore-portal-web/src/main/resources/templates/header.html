@@ -1,0 +1,58 @@
+<div th:fragment="header-pagination">
+	<!--顶部bar-->
+	<div class="top_bar">
+		<div class="sui-row-fluid">
+			<div class="span10 row_h"></div>
+			<div class="span2 row_h">
+				<!--未登录-->
+				<a href="" class="mg_r_15 color_white">登录</a> <a href=""
+					class="color_white">注册</a>
+				<!--登录成功-->
+				<!--<a href="" class="mg_r_15">个人中心</a>
+                        <a href="">退出</a>-->
+			</div>
+		</div>
+	</div>
+	<!--logo&search&cart-->
+	<div class="top_l_s_c">
+		<div class="sui-row-fluid">
+			<!--logo-->
+			<div class="span2 top_logo">
+				<img th:src="@{/img/logo/logo.png}" alt="" />
+			</div>
+			<!--search-->
+			<div class="span7 top_search font_s_0">
+				<form action="">
+					<div class="search_box inline_b">
+						<input type="text" name="search_content" />
+					</div>
+					<button class="search_btn font_s_18">Search</button>
+				</form>
+			</div>
+			<!--cart-->
+			<div class="span3 top_cart p_t_20">
+				<div class="cart font_s_0">
+					<div class="cart_des inline_b o_hidden font_s_16">
+						<i class="sui-icon icon-tb-cart"></i> 
+						<span>My Cart</span>
+					</div>
+					<!--cartNum-->
+					<div class="cart_num inline_b o_hidden color_white font_s_16">0</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--底部nav-->
+	<div class="top_nav p_t_35 p_l_80">
+		<div class="sui-navbar navbar o_hidden mg_all_0">
+			<ul class="sui-nav">
+				<li class="selection"><a href="#">首页</a></li>
+				<li th:each="catgory:${categoryList}"><a href="#" th:text="${catgory.cname}"></a></li>
+				<li><a href="#">更多分类</a></li>
+				<li><a href="#">联系站长</a></li>
+			</ul>
+			<span class="move_line"></span>
+		</div>
+		<hr />
+	</div>
+</div>

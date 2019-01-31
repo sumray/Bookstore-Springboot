@@ -1,0 +1,39 @@
+@charset "utf-8";
+.cart_container .cart_info{
+    margin:30px auto;
+    padding: 5px 0;
+    width: 988px;
+    height: 32px;
+    line-height: 32px;
+    background: #F3F3F3;
+}
+.cart_container .cart_info .cart_nav > div{
+    display: inline-block;
+    font-size: 13px;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(1){
+    width: 133px;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(2){
+    width: 378px;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(3){
+    width: 120px;
+    padding-right: 40px;
+    text-align: right;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(4){
+    width: 80px;
+    text-align: center;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(5){
+    width: 100px;
+    padding-right: 40px;
+    text-align: right;
+}
+.cart_container .cart_info .cart_nav > div:nth-child(6){
+    width: 75px;
+}
+.cart_info .list .del{
+    cursor: pointer;
+}

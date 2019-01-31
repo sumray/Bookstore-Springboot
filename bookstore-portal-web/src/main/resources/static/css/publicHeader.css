@@ -1,0 +1,125 @@
+@charset "utf-8";
+/*顶部bar*/
+.header{
+/*    position: fixed;
+    top: 0;*/
+    width: 100%;
+    z-index: 999;
+    background: #ffffff;
+    transform: translateZ(0);
+}
+.placeholder{
+/*    width: 100%;
+    height: 196px;*/
+}
+.header .top_bar{
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    background: #191D20;
+}
+.header .top_bar .sui-row-fluid .row_h a:hover{
+    color: #45c5d4;
+    text-decoration: none;
+}
+/*搜索部分*/
+.header .top_l_s_c{
+    padding:15px 60px 0 80px;
+}
+.header .top_l_s_c .top_logo,.header .top_l_s_c .top_search,.header .top_l_s_c .top_cart{
+    height: 80px;
+}
+.header .top_l_s_c .top_logo{
+    line-height: 80px;
+}
+.header .top_l_s_c .top_search{
+    padding: 20px 0 0 120px;
+}
+.header .top_l_s_c .top_cart{
+
+}
+.header .top_l_s_c .top_search .search_box{
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    border: 3px solid #375e6f;
+    border-right: none;
+}
+.header .top_l_s_c .top_search .search_box input{
+    margin-left: 10px;
+    width: 80%;
+    height: 70%;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+.header .top_l_s_c .top_search .search_btn{
+    width: 15%;
+    height: 46px;
+    outline: none;
+    border: 3px solid #375e6f;
+    background: #ffffff;
+    overflow: hidden;
+    transition: 1s;
+}
+.header .top_l_s_c .top_search .search_btn:hover{
+    color: #ffffff;
+    box-shadow:0 0 0 40px #375e6f  inset;
+}
+.header .top_l_s_c .top_cart .cart{
+    margin-left: 60px;
+}
+.header .top_l_s_c .top_cart .cart .cart_des{
+    width: 30%;
+    height: 40px;
+    border: 3px solid #375e6f;
+    border-right: none;
+    line-height: 40px;
+    text-align: center;
+}
+.header .top_l_s_c .top_cart .cart_num{
+    width: 12%;
+    height: 40px;
+    border: 3px solid #375e6f;
+    border-left: none;
+    line-height: 40px;
+    text-align: center;
+    background: #5ea1cf;
+}
+/*头部导航*/
+.top_nav{
+    position: relative;
+}
+.top_nav hr{
+    position: absolute;
+    left: 0;
+    bottom:0;
+    margin: 0;
+    height: 3px;
+    width: 100%;
+    background: -webkit-linear-gradient(0,#2eedf7,#f7649d);
+}
+.top_nav .navbar{
+    position: relative;
+}
+.top_nav ul li{
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+.top_nav ul li.selection{
+    border: 1px solid;
+    border-radius: 3px;
+    border-bottom: none;
+}
+.top_nav ul li.selection a{
+    color: #000000;
+}
+.move_line{
+    display: none;
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 3px;
+    background: -webkit-linear-gradient(0,#2eedf7,#f7649d);
+    transition: 200ms linear;
+}

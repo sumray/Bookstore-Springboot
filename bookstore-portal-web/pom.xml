@@ -12,6 +12,7 @@
 	
 	
 	<dependencies>
+		<!-- 相关api  -->
 		<dependency>
 			<groupId>com.zq</groupId>
 			<artifactId>bookstore-order-interface</artifactId>
@@ -22,5 +23,25 @@
 			<artifactId>bookstore-category-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>	
+		<dependency>
+			<groupId>com.zq</groupId>
+			<artifactId>bookstore-book-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>	
+		
+		<!-- 前端相关  -->
+		<dependency>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>net.sourceforge.nekohtml</groupId>
+		    <artifactId>nekohtml</artifactId>
+		</dependency>
+		<dependency>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-devtools</artifactId>			
+		      <optional>true</optional>
+		</dependency>
 	</dependencies>	
 </project>

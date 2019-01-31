@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zq.bookstore.book.mapper.BookCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.zq.bookstore.book.pojo.BookComment" >
+    <id column="comment_id" property="commentId" jdbcType="CHAR" />
+    <result column="main_userId" property="mainUserid" jdbcType="CHAR" />
+    <result column="second_userId" property="secondUserid" jdbcType="CHAR" />
+    <result column="comment_content" property="commentContent" jdbcType="VARCHAR" />
+    <result column="comment_time" property="commentTime" jdbcType="TIMESTAMP" />
+    <result column="bid" property="bid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    comment_id, main_userId, second_userId, comment_content, comment_time, bid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zq.bookstore.book.pojo.BookCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_book_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_book_comment
+    where comment_id = #{commentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_book_comment
+    where comment_id = #{commentId,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zq.bookstore.book.pojo.BookCommentExample" >
+    delete from t_book_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zq.bookstore.book.pojo.BookComment" >
+    insert into t_book_comment (comment_id, main_userId, second_userId, 
+      comment_content, comment_time, bid
+      )
+    values (#{commentId,jdbcType=CHAR}, #{mainUserid,jdbcType=CHAR}, #{secondUserid,jdbcType=CHAR}, 
+      #{commentContent,jdbcType=VARCHAR}, #{commentTime,jdbcType=TIMESTAMP}, #{bid,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zq.bookstore.book.pojo.BookComment" >
+    insert into t_book_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="mainUserid != null" >
+        main_userId,
+      </if>
+      <if test="secondUserid != null" >
+        second_userId,
+      </if>
+      <if test="commentContent != null" >
+        comment_content,
+      </if>
+      <if test="commentTime != null" >
+        comment_time,
+      </if>
+      <if test="bid != null" >
+        bid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=CHAR},
+      </if>
+      <if test="mainUserid != null" >
+        #{mainUserid,jdbcType=CHAR},
+      </if>
+      <if test="secondUserid != null" >
+        #{secondUserid,jdbcType=CHAR},
+      </if>
+      <if test="commentContent != null" >
+        #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bid != null" >
+        #{bid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zq.bookstore.book.pojo.BookCommentExample" resultType="java.lang.Integer" >
+    select count(*) from t_book_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_book_comment
+    <set >
+      <if test="record.commentId != null" >
+        comment_id = #{record.commentId,jdbcType=CHAR},
+      </if>
+      <if test="record.mainUserid != null" >
+        main_userId = #{record.mainUserid,jdbcType=CHAR},
+      </if>
+      <if test="record.secondUserid != null" >
+        second_userId = #{record.secondUserid,jdbcType=CHAR},
+      </if>
+      <if test="record.commentContent != null" >
+        comment_content = #{record.commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commentTime != null" >
+        comment_time = #{record.commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bid != null" >
+        bid = #{record.bid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_book_comment
+    set comment_id = #{record.commentId,jdbcType=CHAR},
+      main_userId = #{record.mainUserid,jdbcType=CHAR},
+      second_userId = #{record.secondUserid,jdbcType=CHAR},
+      comment_content = #{record.commentContent,jdbcType=VARCHAR},
+      comment_time = #{record.commentTime,jdbcType=TIMESTAMP},
+      bid = #{record.bid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zq.bookstore.book.pojo.BookComment" >
+    update t_book_comment
+    <set >
+      <if test="mainUserid != null" >
+        main_userId = #{mainUserid,jdbcType=CHAR},
+      </if>
+      <if test="secondUserid != null" >
+        second_userId = #{secondUserid,jdbcType=CHAR},
+      </if>
+      <if test="commentContent != null" >
+        comment_content = #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bid != null" >
+        bid = #{bid,jdbcType=CHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zq.bookstore.book.pojo.BookComment" >
+    update t_book_comment
+    set main_userId = #{mainUserid,jdbcType=CHAR},
+      second_userId = #{secondUserid,jdbcType=CHAR},
+      comment_content = #{commentContent,jdbcType=VARCHAR},
+      comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      bid = #{bid,jdbcType=CHAR}
+    where comment_id = #{commentId,jdbcType=CHAR}
+  </update>
+</mapper>

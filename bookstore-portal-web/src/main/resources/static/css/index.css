@@ -1,0 +1,615 @@
+@charset "utf-8";
+/*banner*/
+.banner img{
+    width: 100%;
+    height: 457px;
+    overflow: hidden;
+}
+.dot_list{
+    display: flex;
+    position: absolute;
+    top:78%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+}
+.dot_list li{
+    display: inline-block;
+    padding: 5px 5px 5px 5px;
+    float: none;
+    width: 194px;
+    height: 100px;
+    text-indent: 0;
+    background: none;
+    transition: 200ms;
+}
+.dot_list li img{
+    width: 194px;
+    height: 100px;
+    opacity: 0.4;
+}
+.dot_list li.active{
+    transform: translateY(-7px);
+}
+.dot_list li.active img{
+    opacity: 1;
+}
+.banner #myCarousel .carousel-inner .item a{
+    display: block;
+}
+/*新书上架*/
+.newBook{
+    margin:0 auto 10px;
+}
+.newBook .title{
+    position: relative;
+    width: 180px;
+    padding: 6px;
+    background-image: linear-gradient(to left,#dde0e9,#797c85);
+    background-position: 50% 50%;
+    background-size: 200% 200%;
+    animation: title 1s linear infinite alternate;
+    color: #d7e9e7;
+}
+.newBook .title:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 15px solid transparent;
+    border-right:15px solid #ffffff;
+    /*transform: rotateZ(90deg);*/
+}
+@keyframes title {
+    100%{
+        background-position: left center;
+    }
+}
+.newBook .title p{
+    font-size: 16px;
+}
+.newBook .list{
+    width: 100%;
+}
+.newBook .list ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.newBook .list ul li{
+    position: relative;
+    margin: 0 -1px -1px 0;
+    padding: 0 28px;
+    width: 184px;
+    height: 260px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.newBook .list ul li .info_link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.newBook .list ul li .img{
+    margin-bottom: 8px;
+    padding-top: 10px;
+    text-align: center;
+}
+.newBook .list ul li .img img{
+    width: 160px;
+    height: 160px;
+}
+.newBook .list ul li p.name{
+    position: relative;
+    display:-webkit-box;
+    height: 40px;
+    line-height: 21px;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    font-size: 13px;
+    overflow: hidden;
+    z-index: 5;
+}
+.newBook .list ul li .price{
+    position: absolute;
+    bottom: 10px;
+}
+.newBook .list ul li .price span{
+    font-size: 16px;
+    color: #f77665;
+}
+.newBook .list ul li .btn{
+    position: absolute;
+    right: 20px;
+    transform: translate3d(0,46px,0);
+    background: #2a6282;
+    border-radius: 20px;
+    transition: 300ms linear;
+}
+.newBook .list ul li .btn a{
+    display: block;
+    padding: 5px 15px;
+    text-align: center;
+    color: #6aeaf0;
+}
+.newBook .list ul li:hover .btn{
+    transform: translate3d(0,5px,0);
+}
+/*热门书籍*/
+.hotBook{
+    margin: 20px auto 10px;
+}
+.hotBook .title{
+    position: relative;
+}
+.hotBook .title p{
+    font-size: 16px;
+}
+.hotBook .title p:nth-child(1){
+    position: relative;
+    width: 180px;
+    padding: 6px;
+    background-image: linear-gradient(to left,#faa35b,#fa595a);
+    background-position: 50% 50%;
+    background-size: 200% 200%;
+    animation: title 1s linear infinite alternate;
+    color: #d7e9e7;
+}
+.hotBook .title p:nth-child(1):before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 15px solid transparent;
+    border-right:15px solid #ffffff;
+}
+.hotBook .title div{
+    position: absolute;
+    right: 143px;
+    top: 8px;
+}
+.hotBook .title div i{
+    display: inline-block;
+    margin-left: 5px;
+    width: 24px;
+    height: 30px;
+    background: url("../../img/logo/paizi.png") no-repeat;
+    vertical-align: middle;
+}
+.hotBook .title div span{
+    font-size: 17px;
+    vertical-align: middle;
+}
+.hotBook .hot_content{
+    display: flex;
+}
+.hotBook .left_info{
+    position: relative;
+    width: 220px;
+    height: 547px;
+    background: #65B197;
+}
+.hotBook .left_info img{
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+}
+.hotBook .left_info p{
+    position: absolute;
+    right: 0;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #3d897f;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.hotBook .left_info p.one{
+    top: 150px;
+}
+.hotBook .left_info p.two{
+    top: 200px;
+}
+.hotBook .left_info p.select{
+    background: #226158;
+}
+.hotBook .left_info p.select:before{
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 0;
+    border: 15px solid transparent;
+    border-left: 15px solid #226158;
+}
+.hotBook .left_info p.select:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 20px;
+    height: 30px;
+    background:#226158;
+}
+.hotBook .middle_list{
+    width: calc(1210px - 219px - 220px);
+    height: 547px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.hotBook .middle_list ul{
+    display: flex;
+    padding:0 5px 0 5px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+.hotBook .middle_list ul.exclusive{
+    display: none;
+}
+.hotBook .middle_list ul li{
+    position: relative;
+    margin: 0 -1px -1px 0;
+    padding: 20px 20px 0;
+    width: 149px;
+    height: 256px;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.hotBook .middle_list ul li:nth-child(4),.hotBook .middle_list ul li:nth-child(8){
+    border-right: none;
+}
+.hotBook .hot_content .middle_list ul li .info_link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.hotBook .hot_content .middle_list ul li .img{
+    margin-bottom: 8px;
+    padding-top: 10px;
+    text-align: center;
+}
+.hotBook .hot_content .middle_list ul li .img img{
+    width: 160px;
+    height: 160px;
+}
+.hotBook .hot_content .middle_list ul li p.name{
+    position: relative;
+    display:-webkit-box;
+    height: 40px;
+    line-height: 21px;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    font-size: 13px;
+    overflow: hidden;
+    z-index: 5;
+}
+.hotBook .hot_content .middle_list ul li .price{
+    position: absolute;
+    bottom: 10px;
+}
+.hotBook .hot_content .middle_list ul li .price span{
+    font-size: 16px;
+    color: #f77665;
+}
+.hotBook .hot_content .middle_list ul li .btn{
+    position: absolute;
+    right: 5px;
+    transform: translate3d(0,70px,0);
+    background: #2a6282;
+    border-radius: 20px;
+    transition: 300ms linear;
+}
+.hotBook .hot_content .middle_list ul li .btn a{
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    color: #6aeaf0;
+    font-size: 12px;
+}
+.hotBook .hot_content .middle_list ul li:hover .btn{
+    transform: translate3d(0,2px,0);
+}
+.hotBook .right_info{
+    width: 219px;
+    height: 547px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.hotBook .right_info ul li{
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+}
+.hotBook .right_info ul li a{
+    display: none;
+}
+.hotBook .right_info ul li > span{
+    display: inline-block;
+    padding-left: 5px;
+    height: 44px;
+    width: 20px;
+    line-height: 44px;
+    font-style: italic;
+    font-size: 15px;
+    color: #b3b9ba;
+    overflow: hidden;
+}
+.hotBook .right_info ul li:nth-child(1) > span,
+.hotBook .right_info ul li:nth-child(2) > span,
+.hotBook .right_info ul li:nth-child(3) > span{
+    color: #ef6c66;
+}
+.hotBook .right_info ul li img{
+    display: none;
+}
+.hotBook .right_info ul li p{
+    display: inline-block;
+    width: 168px;
+    height: 44px;
+    overflow: hidden;
+}
+.hotBook .right_info ul li .price{
+    display: none;
+}
+.hotBook .right_info ul li:not(.show) p{
+    line-height: 44px;
+}
+.hotBook .right_info ul li.show{
+    height: 107px;
+}
+.hotBook .right_info ul li.show img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.hotBook .right_info ul li.show p{
+    position: relative;
+    width: 85px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 5;
+}
+.hotBook .right_info ul li.show a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.hotBook .right_info ul li.show .price{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    transform: translate3d(109px,53px,0);
+    font-size: 15px;
+    font-weight: 600;
+    color: #ef2932;
+}
+    /*名家名著*/
+.famousBook{
+    margin: 20px auto 10px;
+}
+.famousBook .title{
+    position: relative;
+    width: 180px;
+    padding: 6px;
+    background-image: linear-gradient(to left,#c0fca2,#5dba9e);
+    background-position: 50% 50%;
+    background-size: 200% 200%;
+    animation: title 1s linear infinite alternate;
+    color: #d7e9e7;
+}
+.famousBook .title:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 15px solid transparent;
+    border-right:15px solid #ffffff;
+}
+.famousBook .title p{
+    font-size: 16px;
+}
+.famousBook .famous_content{
+    display: flex;
+}
+.famousBook .left_info{
+    position: relative;
+    width: 220px;
+    height: 547px;
+    background: #65B197;
+    overflow: hidden;
+}
+.famousBook .left_info img{
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+}
+.famousBook .left_info p{
+    position: relative;
+    padding: 10px;
+    transform: translate3d(20px,30px,0);
+    letter-spacing:5px;
+    font-size: 15px;
+    color: #ffffff;
+    z-index: 2;
+}
+.famousBook .middle_list{
+    width: calc(1210px - 219px - 220px);
+    height: 547px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.famousBook .middle_list ul{
+    display: flex;
+    padding:0 5px 0 5px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+.famousBook .middle_list ul.exclusive{
+    display: none;
+}
+.famousBook .middle_list ul li{
+    position: relative;
+    margin: 0 -1px -1px 0;
+    padding: 20px 20px 0;
+    width: 149px;
+    height: 256px;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.famousBook .middle_list ul li:nth-child(4),.hotBook .middle_list ul li:nth-child(8){
+    border-right: none;
+}
+.famousBook .famous_content .middle_list ul li .info_link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.famousBook .famous_content .middle_list ul li .img{
+    margin-bottom: 8px;
+    padding-top: 10px;
+    text-align: center;
+}
+.famousBook .famous_content .middle_list ul li .img img{
+    width: 160px;
+    height: 160px;
+}
+.famousBook .famous_content .middle_list ul li p.name{
+    position: relative;
+    display:-webkit-box;
+    height: 40px;
+    line-height: 21px;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    font-size: 13px;
+    overflow: hidden;
+    z-index: 5;
+}
+.famousBook .famous_content .middle_list ul li .price{
+    position: absolute;
+    bottom: 10px;
+}
+.famousBook .famous_content .middle_list ul li .price span{
+    font-size: 16px;
+    color: #f77665;
+}
+.famousBook .famous_content .middle_list ul li .btn{
+    position: absolute;
+    right: 5px;
+    transform: translate3d(0,70px,0);
+    background: #2a6282;
+    border-radius: 20px;
+    transition: 300ms linear;
+}
+.famousBook .famous_content .middle_list ul li .btn a{
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    color: #6aeaf0;
+    font-size: 12px;
+}
+.famousBook .famous_content .middle_list ul li:hover .btn{
+    transform: translate3d(0,2px,0);
+}
+.famousBook .right_info{
+    width: 219px;
+    height: 547px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.famousBook .right_info .character{
+    width: 100%;
+    height: 56px;
+    background: #dde0e9;
+    color: #4f91b4;
+    font-size: 23px;
+    text-align: center;
+}
+.famousBook .right_info .character h2{
+    line-height: 56px;
+    font-weight: 200;
+}
+.famousBook .right_info .writer{
+    padding-top: 10px;
+}
+.famousBook .right_info .writer .info{
+    padding: 10px;
+}
+.famousBook .right_info .writer .info .img{
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.famousBook .right_info .writer .info .img img{
+    width: 70px;
+    height: 70px;
+}
+.famousBook .right_info .writer .info .about{
+    line-height: 20px;
+    font-size: 12px;
+    color: #999;
+}
+.famousBook .right_info .writer .info .about p:nth-child(1){
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.famousBook .right_info .writer .book{
+    margin-top: 24px;
+    padding: 2px 10px;
+    background: #c2e7fd;
+}
+.famousBook .right_info .writer .book ul li{
+    height: 27px;
+    line-height: 27px;
+    color: #743d2f;
+}
+.famousBook .right_info .other{
+    margin-top: 20px;
+}
+.famousBook .right_info .other ul{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.famousBook .right_info .other ul li{
+    width: 90px;
+    height: 26px;
+    line-height: 26px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
