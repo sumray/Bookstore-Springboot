@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.druid.util.StringUtils;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mysql.fabric.xmlrpc.base.Array;
 import com.zq.bookstore.book.mapper.AuthorMapper;
 import com.zq.bookstore.book.mapper.BookMapper;
@@ -162,8 +164,10 @@ public class BookServiceImpl implements BookService{
 	 * @param bid
 	 * @return
 	 */
-	public List<BookComment> getBookCommentByBid(String bid) {
+	public PageInfo<BookComment> getBookCommentByBid(String bid) {
+		PageHelper.startPage(1, 10);
 		List<BookComment> bookCommentList = bookServiceMapper.getBookCommentByBid(bid);
-		return bookCommentList;
+		PageInfo<BookComment> pageInfo = new PageInfo<>(bookCommentList);
+		return pageInfo;
 	}
 }

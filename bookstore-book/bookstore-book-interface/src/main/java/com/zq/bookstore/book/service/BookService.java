@@ -2,6 +2,7 @@ package com.zq.bookstore.book.service;
 
 import java.util.List;
 
+import com.github.pagehelper.PageInfo;
 import com.zq.bookstore.book.pojo.Author;
 import com.zq.bookstore.book.pojo.Book;
 import com.zq.bookstore.book.pojo.BookComment;
@@ -67,5 +68,5 @@ public interface BookService {
 	 * @param bid
 	 * @return
 	 */
-	List<BookComment> getBookCommentByBid(String bid);
+	PageInfo<BookComment> getBookCommentByBid(String bid);
 }
